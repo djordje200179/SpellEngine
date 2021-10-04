@@ -176,7 +176,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="include\SpellEngine\node.hpp" />
-    <ClInclude Include="include\SpellEngine\spell_engine.hpp" />
+    <ClInclude Include="include\SpellEngine\spell-engine.hpp" />
     <ClInclude Include="pch.hpp" />
   </ItemGroup>
   <ItemGroup>
@@ -187,7 +187,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="src\node.cpp" />
-    <ClCompile Include="src\spell_engine.cpp" />
+    <ClCompile Include="src\spell-engine.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
