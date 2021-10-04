@@ -22,7 +22,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="words-alpha.txt" />
+    <Text Include="words_alpha.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SpellEngine\SpellEngine.vcxproj">

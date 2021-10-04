@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream>
-#include <SpellEngine/spell-engine.hpp>
+#include <SpellEngine/spell_engine.hpp>
 
 void test(const SpellEngine::SpellEngine& spellEngine, const std::string& word) {
 	auto result = spellEngine(word);
@@ -11,7 +11,7 @@ void test(const SpellEngine::SpellEngine& spellEngine, const std::string& word) 
 int main() {
 	auto spellEngine = SpellEngine::SpellEngine();
 
-	auto inputFile = std::ifstream("words-alpha.txt");
+	auto inputFile = std::ifstream("words_alpha.txt");
 	inputFile >> spellEngine;
 	inputFile.close();
 
