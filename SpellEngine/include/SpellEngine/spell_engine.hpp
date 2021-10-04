@@ -13,13 +13,13 @@ namespace SpellEngine {
 		bool checkWord(const std::string& rawWord) const;
 		std::vector<std::string> getPrediction(const std::string& rawWord) const;
 
-		void outputWords(std::ostream& out) const;
-		void inputWords(std::istream& out);
+		void outputWords(std::ostream& output) const;
+		void inputWords(std::istream& input);
 
 		bool operator()(const std::string& rawWord) const;
 		void operator+=(const std::string& rawWord);
-		friend std::ostream& operator<<(std::ostream& out, const SpellEngine& engine);
-		friend std::istream& operator>>(std::istream& in, SpellEngine& engine);
+		friend std::ostream& operator<<(std::ostream& output, const SpellEngine& engine);
+		friend std::istream& operator>>(std::istream& input, SpellEngine& engine);
 
 	private:
 		const Node* getNode(const std::string& word) const;

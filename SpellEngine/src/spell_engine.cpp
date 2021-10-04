@@ -22,9 +22,9 @@ namespace SpellEngine {
 		return node != nullptr;
 	}
 
-	void SpellEngine::inputWords(std::istream& in) {
+	void SpellEngine::inputWords(std::istream& input) {
 		auto tempString = std::string();
-		while(in >> tempString)
+		while(input >> tempString)
 			addWord(tempString);
 	}
 
@@ -35,9 +35,9 @@ namespace SpellEngine {
 		return node->getWords(word.substr(0, word.length() - 1));
 	}
 
-	void SpellEngine::outputWords(std::ostream& out) const {
+	void SpellEngine::outputWords(std::ostream& output) const {
 		for(auto& word : root.getWords())
-			out << word << '\n';
+			output << word << '\n';
 	}
 
 	bool SpellEngine::operator()(const std::string& rawWord) const {
@@ -48,16 +48,16 @@ namespace SpellEngine {
 		addWord(rawWord);
 	}
 
-	std::ostream& operator<<(std::ostream& out, const SpellEngine& engine) {
-		engine.outputWords(out);
+	std::ostream& operator<<(std::ostream& output, const SpellEngine& engine) {
+		engine.outputWords(output);
 
-		return out;
+		return output;
 	}
 
-	std::istream& operator>>(std::istream& in, SpellEngine& engine) {
-		engine.inputWords(in);
+	std::istream& operator>>(std::istream& input, SpellEngine& engine) {
+		engine.inputWords(input);
 
-		return in;
+		return input;
 	}
 
 	const Node* SpellEngine::getNode(const std::string& word) const {
