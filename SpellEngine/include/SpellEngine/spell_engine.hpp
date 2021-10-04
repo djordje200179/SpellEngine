@@ -9,21 +9,21 @@
 namespace SpellEngine {
 	class SpellEngine {
 	public:
-		void add_word(const std::string& raw_word);
-		bool check_word(const std::string& raw_word) const;
-		std::vector<std::string> get_prediction(const std::string& raw_word) const;
+		void addWord(const std::string& rawWord);
+		bool checkWord(const std::string& rawWord) const;
+		std::vector<std::string> getPrediction(const std::string& rawWord) const;
 
-		void output_words(std::ostream& out) const;
-		void input_words(std::istream& out);
+		void outputWords(std::ostream& out) const;
+		void inputWords(std::istream& out);
 
-		bool operator()(const std::string& raw_word) const;
-		void operator+=(const std::string& raw_word);
+		bool operator()(const std::string& rawWord) const;
+		void operator+=(const std::string& rawWord);
 		friend std::ostream& operator<<(std::ostream& out, const SpellEngine& engine);
 		friend std::istream& operator>>(std::istream& in, SpellEngine& engine);
 
 	private:
-		const Node* get_node(const std::string& word) const;
-		static std::string to_lower(const std::string& raw_word);
+		const Node* getNode(const std::string& word) const;
+		static std::string toLower(const std::string& rawWord);
 
 		Node root;
 	};

@@ -3,84 +3,84 @@
 #include "pch.hpp"
 
 namespace SpellEngine {
-	void SpellEngine::add_word(const std::string& raw_word) {
-		auto word = to_lower(raw_word);
+	void SpellEngine::addWord(const std::string& rawWord) {
+		auto word = toLower(rawWord);
 
 		auto node = &root;
 		for(auto character : word) {
-			auto found = node->get_child(character);
-			node = found ? found : node->add_child(character);
+			auto found = node->getChild(character);
+			node = found ? found : node->addChild(character);
 		}
 
-		node->increment_frequency();
+		node->incrementFrequency();
 	}
 
-	bool SpellEngine::check_word(const std::string& raw_word) const {
-		auto word = to_lower(raw_word);
+	bool SpellEngine::checkWord(const std::string& rawWord) const {
+		auto word = toLower(rawWord);
 
-		auto node = get_node(word);
+		auto node = getNode(word);
 		return node != nullptr;
 	}
 
-	void SpellEngine::input_words(std::istream& in) {
-		auto temp_string = std::string();
-		while(in >> temp_string)
-			add_word(temp_string);
+	void SpellEngine::inputWords(std::istream& in) {
+		auto tempString = std::string();
+		while(in >> tempString)
+			addWord(tempString);
 	}
 
-	std::vector<std::string> SpellEngine::get_prediction(const std::string& raw_word) const {
-		auto word = to_lower(raw_word);
+	std::vector<std::string> SpellEngine::getPrediction(const std::string& rawWord) const {
+		auto word = toLower(rawWord);
 
-		auto node = get_node(word);
-		return node->get_words(word.substr(0, word.length() - 1));
+		auto node = getNode(word);
+		return node->getWords(word.substr(0, word.length() - 1));
 	}
 
-	void SpellEngine::output_words(std::ostream& out) const {
-		for(auto& word : root.get_words())
+	void SpellEngine::outputWords(std::ostream& out) const {
+		for(auto& word : root.getWords())
 			out << word << '\n';
 	}
 
-	bool SpellEngine::operator()(const std::string& raw_word) const {
-		return check_word(raw_word);
+	bool SpellEngine::operator()(const std::string& rawWord) const {
+		return checkWord(rawWord);
 	}
 
-	void SpellEngine::operator+=(const std::string& raw_word) {
-		add_word(raw_word);
+	void SpellEngine::operator+=(const std::string& rawWord) {
+		addWord(rawWord);
 	}
 
 	std::ostream& operator<<(std::ostream& out, const SpellEngine& engine) {
-		engine.output_words(out);
+		engine.outputWords(out);
 
 		return out;
 	}
 
 	std::istream& operator>>(std::istream& in, SpellEngine& engine) {
-		engine.input_words(in);
+		engine.inputWords(in);
 
 		return in;
 	}
 
-	const Node* SpellEngine::get_node(const std::string& word) const {
-		auto current_node = &root;
+	const Node* SpellEngine::getNode(const std::string& word) const {
+		auto currentNode = &root;
 		for(char character : word) {
-			auto child = current_node->get_child(character);
+			auto child = currentNode->getChild(character);
 
 			if(child)
-				current_node = child;
+				currentNode = child;
 			else
 				return nullptr;
 		}
 
-		return current_node;
+		return currentNode;
 	}
 
-	std::string SpellEngine::to_lower(const std::string& raw_word) {
-		auto new_string = std::string();
-		new_string.reserve(raw_word.size());
+	std::string SpellEngine::toLower(const std::string& rawWord) {
+		auto newString = std::string();
+		newString.reserve(rawWord.size());
 
-		for(auto ch: raw_word)
-			new_string.push_back(std::tolower(ch));
+		for(auto ch: rawWord)
+			newString.push_back(std::tolower(ch));
 
-		return new_string;
+		return newString;
 	}
 }

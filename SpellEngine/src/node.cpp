@@ -8,11 +8,11 @@ namespace SpellEngine {
 			delete child;
 	}
 
-	void Node::increment_frequency() {
+	void Node::incrementFrequency() {
 		frequency++;
 	}
 
-	Node* Node::get_child(char character) const {
+	Node* Node::getChild(char character) const {
 		for(auto child : children)
 			if(child->character == character)
 				return child;
@@ -20,27 +20,27 @@ namespace SpellEngine {
 		return nullptr;
 	}
 
-	Node* Node::add_child(char character) {
-		auto new_node = new Node(character);
-		children.push_back(new_node);
+	Node* Node::addChild(char character) {
+		auto newNode = new Node(character);
+		children.push_back(newNode);
 
-		return new_node;
+		return newNode;
 	}
 
-	std::vector<std::string> Node::get_words(const std::string& prefix) const {
+	std::vector<std::string> Node::getWords(const std::string& prefix) const {
 		auto words = std::vector<std::string>();
-		get_words_resursively(words, prefix);
+		getWordsResursively(words, prefix);
 		return words;
 	}
 
-	void Node::get_words_resursively(std::vector<std::string>& words, std::string current_string) const {
+	void Node::getWordsResursively(std::vector<std::string>& words, std::string currentString) const {
 		if(character)
-			current_string.push_back(character);
+			currentString.push_back(character);
 
 		if(frequency)
-			words.push_back(current_string);
+			words.push_back(currentString);
 
 		for(auto son : children)
-			son->get_words_resursively(words, current_string);
+			son->getWordsResursively(words, currentString);
 	}
 }
