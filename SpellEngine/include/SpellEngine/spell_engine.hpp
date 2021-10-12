@@ -7,24 +7,24 @@
 #include "node.hpp"
 
 namespace SpellEngine {
-	class SpellEngine {
-	public:
-		void add_word(const std::string& raw_word);
-		bool check_word(const std::string& raw_word) const;
-		std::vector<std::string> get_prediction(const std::string& raw_word) const;
+class SpellEngine {
+public:
+	void addWord(const std::string& rawWord);
+	bool checkWord(const std::string& rawWord) const;
+	std::vector<std::string> getPrediction(const std::string& rawWord) const;
 
-		void output_words(std::ostream& out) const;
-		void input_words(std::istream& out);
+	void outputWords(std::ostream& output) const;
+	void inputWords(std::istream& input);
 
-		bool operator()(const std::string& raw_word) const;
-		void operator+=(const std::string& raw_word);
-		friend std::ostream& operator<<(std::ostream& out, const SpellEngine& engine);
-		friend std::istream& operator>>(std::istream& in, SpellEngine& engine);
+	bool operator()(const std::string& rawWord) const;
+	void operator+=(const std::string& rawWord);
+	friend std::ostream& operator<<(std::ostream& output, const SpellEngine& engine);
+	friend std::istream& operator>>(std::istream& input, SpellEngine& engine);
 
-	private:
-		const Node* get_node(const std::string& word) const;
-		static std::string to_lower(const std::string& raw_word);
+private:
+	const Node* getNode(const std::string& word) const;
+	static std::string toLower(const std::string& rawWord);
 
-		Node root;
-	};
+	Node root;
+};
 }

@@ -4,24 +4,24 @@
 #include <string>
 
 namespace SpellEngine {
-	class Node {
-	public:
-		Node(char c = '\0');
-		~Node();
+class Node {
+public:
+	Node(char c = '\0');
+	~Node();
 
-		void increment_frequency();
+	void incrementFrequency();
 
-		Node* get_child(char c) const;
-		Node* add_child(char c);
+	Node* getChild(char c) const;
+	Node* addChild(char c);
 
-		std::vector<std::string> get_words(const std::string& prefix = "") const;
+	std::vector<std::string> getWords(const std::string& prefix = "") const;
 
-	private:
-		void get_words_resursively(std::vector<std::string>& words, std::string current_string) const;
+private:
+	void getWordsResursively(std::vector<std::string>& words, std::string currentString) const;
 
-		std::vector<Node*> children;
+	std::vector<Node*> children;
 
-		unsigned int frequency = 0;
-		char character = '\0';
-	};
+	unsigned int frequency = 0;
+	char character = '\0';
+};
 }
