@@ -28,7 +28,7 @@ Node* Node::addChild(char character) {
 }
 
 std::vector<std::string> Node::getWords(const std::string& prefix) const {
-	auto words = std::vector<std::string>();
+	std::vector<std::string> words;
 	getWordsResursively(words, prefix);
 	return words;
 }

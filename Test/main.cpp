@@ -9,9 +9,9 @@ void test(const SpellEngine::SpellEngine& spellEngine, const std::string& word) 
 }
 
 int main() {
-	auto spellEngine = SpellEngine::SpellEngine();
+	SpellEngine::SpellEngine spellEngine;
 
-	auto inputFile = std::ifstream("words_alpha.txt");
+	std::ifstream inputFile("words_alpha.txt");
 	inputFile >> spellEngine;
 	inputFile.close();
 
