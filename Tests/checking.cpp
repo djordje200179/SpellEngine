@@ -7,7 +7,7 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 namespace SpellEngine {
 TEST_CLASS(Checking) {
 private:
-	static SpellEngine spellEngine;
+	inline static SpellEngine spellEngine;
 
 	TEST_CLASS_INITIALIZE(Construction) {
 		std::ifstream inputFile("words_alpha.txt");
@@ -33,7 +33,5 @@ public:
 		Assert::IsTrue(result.size());
 	}
 };
-
-SpellEngine Checking::spellEngine;
 }
 
