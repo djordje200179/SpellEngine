@@ -14,7 +14,6 @@ private:
 		inputFile >> spellEngine;
 		inputFile.close();
 	}
-
 public:
 	TEST_METHOD(SuccessfulSearch) {
 		auto result = spellEngine("house");
