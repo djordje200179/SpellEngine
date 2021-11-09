@@ -19,7 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="words_alpha.txt" />
+    <Text Include="words_alpha.txt">
+      <DeploymentContent>true</DeploymentContent>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SpellEngine\SpellEngine.vcxproj">
