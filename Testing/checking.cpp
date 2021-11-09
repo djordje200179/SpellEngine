@@ -7,9 +7,9 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 namespace SpellEngine {
 TEST_CLASS(Checking) {
 private:
-	SpellEngine spellEngine;
+	static SpellEngine spellEngine;
 
-	TEST_METHOD_INITIALIZE(Construction) {
+	TEST_CLASS_INITIALIZE(Construction) {
 		std::ifstream inputFile("words_alpha.txt");
 		inputFile >> spellEngine;
 		inputFile.close();
@@ -27,4 +27,7 @@ public:
 		Assert::IsFalse(result);
 	}
 };
+
+SpellEngine Checking::spellEngine;
 }
+
