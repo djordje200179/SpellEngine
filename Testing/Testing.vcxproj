@@ -18,6 +18,14 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="words_alpha.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SpellEngine\SpellEngine.vcxproj">
+      <Project>{e9e4ac00-5643-4ae4-b172-72b77a20fe73}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <ProjectGuid>{A50A9DE8-C30A-424E-9102-19EAA6587F4A}</ProjectGuid>
