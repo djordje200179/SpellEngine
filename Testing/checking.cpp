@@ -26,6 +26,12 @@ public:
 
 		Assert::IsFalse(result);
 	}
+
+	TEST_METHOD(WordPrediction) {
+		auto result = spellEngine.getPrediction("program");
+
+		Assert::IsTrue(result.size());
+	}
 };
 }
 

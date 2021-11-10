@@ -14,5 +14,11 @@ public:
 		inputFile >> spellEngine;
 		inputFile.close();
 	}
+
+	TEST_METHOD(WordAdding) {
+		SpellEngine spellEngine;
+
+		spellEngine += "house";
+	}
 };
 }
