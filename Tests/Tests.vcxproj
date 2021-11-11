@@ -36,9 +36,10 @@
     <VCProjectVersion>17.0</VCProjectVersion>
     <ProjectGuid>{A50A9DE8-C30A-424E-9102-19EAA6587F4A}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Testing</RootNamespace>
+    <RootNamespace>Tests</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <ProjectSubType>NativeUnitTestProject</ProjectSubType>
+    <ProjectName>Tests</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
